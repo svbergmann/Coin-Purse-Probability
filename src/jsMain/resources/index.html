@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coin Purse Probability</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark">
+  <main class="container">
+    <header class="topbar">
+      <div>
+        <h1 id="app-title">Coin Purse Probability</h1>
+        <p id="app-subtitle" class="subtitle">Simple Quacks helper for draw probabilities.</p>
+      </div>
+      <div class="lang-picker">
+        <button id="language-toggle" type="button" title="Zu Englisch wechseln">🇩🇪 DE</button>
+        <button id="darkmode-toggle" type="button" title="Hellmodus">☀️</button>
+      </div>
+    </header>
+
+    <section class="controls">
+      <div class="field">
+        <label id="coin-label" for="coin-dropdown-toggle">Münze</label>
+        <div class="coin-dropdown" id="coin-dropdown">
+          <button id="coin-dropdown-toggle" type="button" class="coin-dropdown-toggle"></button>
+          <div id="coin-dropdown-menu" class="coin-dropdown-menu"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label id="quantity-label" for="quantity-input">Anzahl</label>
+        <input id="quantity-input" type="number" min="1" value="1">
+      </div>
+
+      <div class="actions">
+        <button id="add-button">Hinzufügen</button>
+        <button id="remove-button">Entfernen</button>
+        <button id="draw-button">Ziehen (Zufällig)</button>
+        <button id="reset-drawn-button">Gezogene zurück</button>
+        <button id="reset-starter-button">Startbeutel</button>
+      </div>
+    </section>
+
+    <p id="last-action" class="status"></p>
+    <p id="totals" class="status"></p>
+
+    <section>
+      <h2 id="prob-title">Verbleibende Zieh-Wahrscheinlichkeit</h2>
+      <table>
+        <thead>
+          <tr>
+            <th id="th-coin">Münze</th>
+            <th id="th-count">Anzahl</th>
+            <th id="th-fraction">Bruch</th>
+            <th id="th-chance">Chance</th>
+            <th id="th-action">Ziehen</th>
+          </tr>
+        </thead>
+        <tbody id="probabilities"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2 id="drawn-title">Gezogene Münzen</h2>
+      <ol id="drawn-coins"></ol>
+    </section>
+  </main>
+  <script src="coin-purse-probability.js"></script>
+</body>
+</html>

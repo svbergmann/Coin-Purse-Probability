@@ -1,6 +1,27 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.kotlin.multiplatform)
+}
+
+kotlin {
+    jvmToolchain(25)
+
+    js {
+        binaries.executable()
+        compilerOptions {
+            main.set(org.jetbrains.kotlin.gradle.dsl.JsMainFunctionExecutionMode.CALL)
+        }
+        browser {
+            testTask {
+                useKarma {
+                    useChromeHeadless()
+                }
+            }
+        }
+    }
+
+    sourceSets {
+        jsTest.dependencies {
+            implementation(kotlin("test"))
+        }
+    }
 }
